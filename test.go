@@ -1,3 +1,4 @@
+// keep going https://www.runoob.com/go/go-constants.html
 package main
 
 import "fmt"
