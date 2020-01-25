@@ -14,12 +14,13 @@ func sum(s []int, c chan int) {
 }
 
 func main() {
-	s := []int{7, 2, 8, -9, 4, 0}
+	s := []int{1, -3, 5, -2, 4, -6}
 
-	c := make(chan int)
-	go sum(s[:len(s)/2], c)
-	go sum(s[len(s)/2:], c)
-	x, y := <-c, <-c // 从通道 c 中接收
+	c1 := make(chan int)
+	c2 := make(chan int)
+	go sum(s[:len(s)/2], c1)
+	go sum(s[len(s)/2:], c2)
+	x, y := <-c1, <-c2 // 从通道 c 中接收
 
 	fmt.Println(x, y, x+y)
 }
